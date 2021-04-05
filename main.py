@@ -1,5 +1,8 @@
 import discord
 from discord.ext import commands
+import os
+
+token = os.getenv("DC_TOKEN")
 
 bot = commands.Bot(command_prefix='[')
 channel = bot.get_channel(828677514184491059)
@@ -11,4 +14,4 @@ async def on_ready():
     print("I am online")
 
 
-bot.run("ODI4NjcyNDY3OTQwNjcxNDg4.YGs_YA.SxgSXhvsaWG9-Q7tgLUkkL6Woxg")
+bot.run(token)
