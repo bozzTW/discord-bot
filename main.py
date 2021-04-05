@@ -7,7 +7,8 @@ channel = bot.get_channel(828677514184491059)
 
 @bot.event
 async def on_ready():
-    await channel.send('機器人測試')
+    await bot.change_presence(status=discord.Status.idle, activity=discord.Game("Listening to .help"))
+    print("I am online")
 
 
 bot.run("ODI4NjcyNDY3OTQwNjcxNDg4.YGs_YA.SxgSXhvsaWG9-Q7tgLUkkL6Woxg")
