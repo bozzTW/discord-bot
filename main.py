@@ -12,17 +12,14 @@ channel = client.get_channel(828677514184491059)
 
 @client.event
 async def on_ready():
-    print('{0.user} 已經登入'.format(client))
-    await client.get_channel(828677514184491059).send("test")
+    print('>> {0.user} 已經登入 <<'.format(client))
+    await channel.send(">> 霸氣測試 beta 0.1 <<")
 
 
 @client.event
-async def on_message(message):
-    if message.author == client.user:
-        return
+async def on_voice_state_update(member, before, after):
+    await client.get_channel(828677514184491059).send(f"{member} ㄉ before 是 {before} after 是 {after}")
 
-    if message.content.startswith('$hello'):
-        await message.channel.send('Hello!')
 
 client.run(token)
 
