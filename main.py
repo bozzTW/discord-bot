@@ -7,11 +7,13 @@ token = os.getenv("DC_TOKEN")
 # bot = commands.Bot(command_prefix='[')
 
 client = discord.Client()
+channel = client.get_channel(828677514184491059)
 
 
 @client.event
 async def on_ready():
-    print('We have logged in as {0.user}'.format(client))
+    print('{0.user} 已經登入'.format(client))
+    channel.send("test")
 
 
 @client.event
@@ -26,7 +28,7 @@ client.run(token)
 
 
 
-# channel = bot.get_channel(828677514184491059)
+
 #
 # @bot.event
 # async def on_ready():
