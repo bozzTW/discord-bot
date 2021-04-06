@@ -13,7 +13,7 @@ channel = client.get_channel(828677514184491059)
 @client.event
 async def on_ready():
     print('{0.user} 已經登入'.format(client))
-    channel.send("test")
+    await client.get_channel(828677514184491059).send("test")
 
 
 @client.event
