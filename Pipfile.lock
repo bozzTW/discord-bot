@@ -93,11 +93,11 @@
         },
         "discord.py": {
             "hashes": [
-                "sha256:1b05150e767c4a18941d863d819844ecef8395b0ca3784055d78770b8fa70b68",
-                "sha256:330edfa11e59c1d1eae31e68f02f8cfcea2702813439dfe58dd587018979e1c9"
+                "sha256:399b80d576a63fa901300e80080568e1d9cd9c21260ca622fd7145c0009278fa",
+                "sha256:82bc5e6325ab7557db9c466f638c98e18be03c330f56ad9bf4c18bdcf19faf55"
             ],
             "markers": "python_full_version >= '3.5.3'",
-            "version": "==1.7.0"
+            "version": "==1.7.1"
         },
         "idna": {
             "hashes": [
@@ -156,6 +156,7 @@
                 "sha256:99d4073b617d30288f569d3f13d2bd7548c3a7e4c8de87db09a9d29bb3a4a60c",
                 "sha256:dafc7639cde7f1b6e1acc0f457842a83e722ccca8eef5270af2d74792619a89f"
             ],
+            "markers": "python_version < '3.8'",
             "version": "==3.7.4.3"
         },
         "yarl": {
