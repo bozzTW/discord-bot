@@ -7,12 +7,20 @@ token = os.getenv("DC_TOKEN")
 bot = commands.Bot(command_prefix='[')
 channel = bot.get_channel(828677514184491059)
 
-
 @bot.event
 async def on_ready():
-    await bot.change_presence(status=discord.Status.idle, activity=discord.Game("Listening to .help"))
+    await channel.send('機器人測試')
     print("I am online")
 
+# @bot.event
+# async def on_ready():
+#     # await bot.change_presence(status=discord.Status.idle, activity=discord.Game("Listening to .help"))
+#     print("I am online")
+
+
+# @bot.event()
+# async def on_():
+#     channel
 
 bot.run(token)
 
