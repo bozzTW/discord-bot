@@ -15,6 +15,14 @@ client = discord.Client()
 #     print('>> {0.user} 已經登入 <<'.format(client))
     # await client.get_channel(828677514184491059).send(">> 霸氣測試 beta 0.2 <<")
 
+super_id = 0
+for guild in client.guilds:
+    for channel in guild.channels:
+        if type(channel) is discord.channel.TextChannel:
+            if channel.name == "機器人通知":
+                super_id = channel.id
+                break
+
 
 @client.event
 async def on_voice_state_update(member, before, after):
@@ -23,20 +31,10 @@ async def on_voice_state_update(member, before, after):
         name = member
         index = name.rfind("#")
         name = name[0:index]
-    mega_id = 0
-    for guild in client.guilds:
-        for channel in guild.channels:
-            if type(channel) is discord.channel.TextChannel:
-                if channel.name == "機器人通知":
-                    print(channel.name)
-                    print(channel.id)
-                    mega_id = channel.id
-                    print(mega_id)
-                    break
 
     if after.channel is not None:
-        await client.get_channel(mega_id).send(f"{name}進來了")
+        await client.get_channel(super_id).send(f"{name}進來了")
     if after.channel is None:
-        await client.get_channel(mega_id).send(f"{name}出來了")
+        await client.get_channel(super_id).send(f"{name}出來了")
 
 client.run(token)
