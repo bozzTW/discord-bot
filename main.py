@@ -27,14 +27,12 @@ async def on_voice_state_update(member, before, after):
     for guild in client.guilds:
         for channel in guild.channels:
             if type(channel) is discord.channel.TextChannel:
-                print("Type OK")
-                print(channel.name)
-                print(channel.id)
-                # if channel.name is "機器人通知":
-                #     print("Name OK")
-                #     mega_id = channel.id
-                #     print(mega_id)
-                #     break
+                if channel.name == "機器人通知":
+                    print(channel.name)
+                    print(channel.id)
+                    mega_id = channel.id
+                    print(mega_id)
+                    break
 
     if after.channel is not None:
         await client.get_channel(mega_id).send(f"{name}進來了")
