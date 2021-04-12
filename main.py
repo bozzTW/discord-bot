@@ -46,12 +46,11 @@ async def on_voice_state_update(member, before, after):
                     super_id = channel.id
                     break
 
-    print(before)
-    print(after)
-
-    # if after.channel is not None:
-    #     await client.get_channel(super_id).send(f"{name}進來了")
-    # if after.channel is None:
-    #     await client.get_channel(super_id).send(f"{name}出來了")
+    if before.channel is None:
+        await client.get_channel(super_id).send(f"{name}跑去{after.name}了")
+    if before.channel is not None and after.channel is not None:
+        await client.get_channel(super_id).send(f"{name}還跑去{after.name}了")
+    if after.channel is None:
+        await client.get_channel(super_id).send(f"{name}出來了")
 
 client.run(token)
