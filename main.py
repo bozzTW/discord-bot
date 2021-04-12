@@ -10,9 +10,7 @@ client = discord.Client()
 ######################################################
 
 
-for guild in client.guilds:
-    for channel in guild.channels:
-        print(channel.name)
+
 
 
 # @client.event
@@ -26,10 +24,16 @@ async def on_voice_state_update(member, before, after):
     name = member.nick
     if name is None:
         name = member
+        name = "123"
+        # name.rfind(#)
     # if after.channel is not None:
     #     await client.get_channel(828677514184491059).send(f"{name} 進來了")
     # if after.channel is None:
     #     await client.get_channel(828677514184491059).send(f"{name} 出來了")
-
+    for guild in client.guilds:
+        for channel in guild.channels:
+            print(channel)
+            print(type(channel))
+            print(channel.name)
 
 client.run(token)
