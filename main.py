@@ -10,6 +10,11 @@ client = discord.Client()
 ######################################################
 
 
+for guild in client.guilds:
+    for channel in guild.channels:
+        print(channel.name)
+
+
 # @client.event
 # async def on_ready():
 #     print('>> {0.user} 已經登入 <<'.format(client))
@@ -18,12 +23,13 @@ client = discord.Client()
 
 @client.event
 async def on_voice_state_update(member, before, after):
-    print(member)
-    print(member.nick)
+    name = member.nick
+    if name is None:
+        name = member
     # if after.channel is not None:
-    #     await client.get_channel(828677514184491059).send(f"{member} 進來了")
+    #     await client.get_channel(828677514184491059).send(f"{name} 進來了")
     # if after.channel is None:
-    #     await client.get_channel(828677514184491059).send(f"{member} 出來了")
+    #     await client.get_channel(828677514184491059).send(f"{name} 出來了")
 
 
 client.run(token)
