@@ -34,7 +34,7 @@ client = discord.Client()
 async def on_voice_state_update(member, before, after):
     name = member.nick
     if name is None:
-        name = member
+        name = str(member)
         index = name.rfind("#")
         name = name[0:index]
 
