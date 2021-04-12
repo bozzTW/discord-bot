@@ -19,7 +19,7 @@ client = discord.Client()
 @client.event
 async def on_voice_state_update(member, before, after):
     print(member)
-    print(type(member))
+    print(member.nick)
     # if after.channel is not None:
     #     await client.get_channel(828677514184491059).send(f"{member} 進來了")
     # if after.channel is None:
