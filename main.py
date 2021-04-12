@@ -10,9 +10,6 @@ client = discord.Client()
 ######################################################
 
 
-
-
-
 # @client.event
 # async def on_ready():
 #     print('>> {0.user} 已經登入 <<'.format(client))
@@ -24,16 +21,18 @@ async def on_voice_state_update(member, before, after):
     name = member.nick
     if name is None:
         name = member
-        name = "123"
-        # name.rfind(#)
-    # if after.channel is not None:
-    #     await client.get_channel(828677514184491059).send(f"{name} 進來了")
-    # if after.channel is None:
-    #     await client.get_channel(828677514184491059).send(f"{name} 出來了")
+        index = name.rfind("#")
+        name = name[0:index]
+
     for guild in client.guilds:
         for channel in guild.channels:
-            print(channel)
-            print(type(channel))
-            print(channel.name)
+            if type(channel) is discord.channel.TextChannel:
+                if channel.name is "機器人通知":
+                    channel_id = channel.id
+
+    if after.channel is not None:
+        await client.get_channel(channel_id).send(f"{name}進來了")
+    if after.channel is None:
+        await client.get_channel(channel_id).send(f"{name}出來了")
 
 client.run(token)
