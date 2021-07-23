@@ -62,6 +62,12 @@ async def on_voice_state_update(member, before, after):
     # print(after.channel.members)
     # print(len(after.channel.members))
     # print(client.get_channel(846729731634102273).members)
+
+    if len(client.get_channel(846729731634102273).members) > 1:
+        print(time.localtime())
+        # await client.get_channel(super_id).send(f"Imposter記錄 ")
+        # await client.get_channel(super_id).send(f"{mention}\n狗幹你一波")
+
     for i in client.get_channel(846729731634102273).members:
         print(i.nick)
     # await client.get_channel(super_id).send(f"{mention}\n狗幹你一波")
