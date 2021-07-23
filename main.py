@@ -40,7 +40,7 @@ async def on_voice_state_update(member, before, after):
     #     name = name[0:index]
 
     mention = member.mention
-    # 找到名字是上面設定的的頻道並指派super_id
+    # 找到名字是target_channel的頻道並指派super_id，用來送機器人訊息的專門頻道
     super_id = 0
     for guild in client.guilds:
         for channel in guild.channels:
@@ -49,7 +49,7 @@ async def on_voice_state_update(member, before, after):
                     super_id = channel.id
                     break
     embedVar = discord.Embed(title="Title", description="DescDescDescDescDescDescDescDescDescDescDescDescDescDescDescDescDescDescDescDescDescDescDescDesc", color=0x00ff00)
-    embedVar.add_field(value="abcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcd", inline=true)
+    embedVar.add_field(value="abcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcd", inline=True)
     embedVar.add_field(value="cdefgcdefgcdefgcdefgcdefgcdefgcdefgcdefgcdefgcdefgcdefgcdefgcdefgcdefgcdefgcdefgcdefgcdefgcdefgcdefgcdefgcdefgcdefgcdefg", inline=False)
     await client.get_channel(super_id).send(embed=embedVar)
     await client.get_channel(super_id).send(f"{mention} 測試中")
