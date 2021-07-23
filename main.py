@@ -33,7 +33,7 @@ client = discord.Client()
 
 @client.event
 async def on_voice_state_update(member, before, after):
-    target_channel = "測試"
+    target_channel = "機器人通知"
     # name = member.nick
     # if name is None:
     #     name = str(member)
@@ -49,7 +49,7 @@ async def on_voice_state_update(member, before, after):
                 if channel.name == target_channel:
                     super_id = channel.id
                     break
-    victim = 846729731634102273
+    # victim = 846729731634102273
     # for guild in client.guilds:
     #     for channel in guild.voice_channels:
     #         print(channel.name)
@@ -62,14 +62,14 @@ async def on_voice_state_update(member, before, after):
     # print(after.channel.members)
     # print(len(after.channel.members))
     # print(client.get_channel(846729731634102273).members)
-
-    if len(client.get_channel(846729731634102273).members) > 1:
-        print(time.localtime())
-        # await client.get_channel(super_id).send(f"Imposter記錄 ")
-        # await client.get_channel(super_id).send(f"{mention}\n狗幹你一波")
-
-    for i in client.get_channel(846729731634102273).members:
-        print(i.nick)
+    # print(time.localtime())
+    # if len(client.get_channel(846729731634102273).members) > 1:
+    #     print(time.localtime())
+    #     # await client.get_channel(super_id).send(f"Imposter記錄 ")
+    #     # await client.get_channel(super_id).send(f"{mention}\n狗幹你一波")
+    #
+    # for i in client.get_channel(846729731634102273).members:
+    #     print(i.nick)
     # await client.get_channel(super_id).send(f"{mention}\n狗幹你一波")
     # await client.get_channel(super_id).send("狗逼\n幹你一波")
     # await client.get_channel(super_id).send(f"{mention}測試")
@@ -83,12 +83,12 @@ async def on_voice_state_update(member, before, after):
     # await client.get_channel(super_id).send(embed=embedVar)
     # await client.get_channel(super_id).send(f"{mention} 測試中")
 
-    # if before.channel is None:
-    #     await client.get_channel(super_id).send(f"{name}跑去{after.channel.name}了")
+    if before.channel is None:
+        await client.get_channel(super_id).send(f"{mention} in {after.channel.name}")
     # if before.channel is not None and after.channel is not None:
     #     await client.get_channel(super_id).send(f"{name}還跑去{after.channel.name}了")
-    # if after.channel is None:
-    #     await client.get_channel(super_id).send(f"{name}出來了")
+    if after.channel is None:
+        await client.get_channel(super_id).send(f"{mention} 出來ㄌ")
 
 client.run(token)
 
