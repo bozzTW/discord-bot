@@ -1,5 +1,6 @@
 import discord
 import os
+import time
 
 token = os.getenv("DC_TOKEN")
 client = discord.Client()
@@ -60,7 +61,7 @@ async def on_voice_state_update(member, before, after):
     # print(before.channel.members)
     # print(after.channel.members)
     # print(len(after.channel.members))
-    print(client.get_channel(846729731634102273).members)
+    # print(client.get_channel(846729731634102273).members)
     for i in client.get_channel(846729731634102273).members:
         print(i.nick)
     # await client.get_channel(super_id).send(f"{mention}\n狗幹你一波")
