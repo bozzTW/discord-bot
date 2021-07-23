@@ -53,7 +53,7 @@ async def on_voice_state_update(member, before, after):
         for channel in guild.voice_channels:
             if channel.name == "沒料":
                 victim = channel.id
-    print(client.get_channel(super_id).members)
+    print(client.get_channel(victim).members)
     # print(after.channel.name)
     # print(before.channel.members)
     # print(after.channel.members)
