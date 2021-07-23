@@ -49,9 +49,11 @@ async def on_voice_state_update(member, before, after):
                     super_id = channel.id
                     break
     print(after.channel.name)
+    print(before.channel.members)
     print(after.channel.members)
     print(len(after.channel.members))
-    client.get_channel(super_id).send(f"{mention}\n測試")
+    client.get_channel(super_id).send(f"{mention}測試")
+    client.get_channel(super_id).send(f"{mention}'\n'測試")
     # if len(after.channel.members) > 1:
     #     client.get_channel(super_id).send(f"{mention}\n狗幹你一波")
 
