@@ -50,10 +50,14 @@ async def on_voice_state_update(member, before, after):
                     break
     print(after.channel.members)
     print(len(after.channel.members))
-    embedVar = discord.Embed(title="f{mention}", color=0x2b2b2b)
-    embedVar.add_field(name="f{mention}", value="a", inline=False)
-    await client.get_channel(super_id).send(embed=embedVar)
-    await client.get_channel(super_id).send(f"{mention} 測試中")
+
+    if len(after.channel.members) > 1:
+        client.get_channel(super_id).send(f"{mention}\n狗幹你一波")
+
+    # embedVar = discord.Embed(title="f{mention}", color=0x2b2b2b)
+    # embedVar.add_field(name="f{mention}", value=f"{mention}", inline=False)
+    # await client.get_channel(super_id).send(embed=embedVar)
+    # await client.get_channel(super_id).send(f"{mention} 測試中")
 
     # if before.channel is None:
     #     await client.get_channel(super_id).send(f"{name}跑去{after.channel.name}了")
