@@ -48,9 +48,10 @@ async def on_voice_state_update(member, before, after):
                 if channel.name == target_channel:
                     super_id = channel.id
                     break
-    embedVar = discord.Embed(title="Title", description="DescDescDescDescDescDescDescDescDescDescDescDescDescDescDescDescDescDescDescDescDescDescDescDesc", color=0x00ff00)
-    embedVar.add_field(name="Field1", value="abcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcd", inline=True)
-    embedVar.add_field(name="Field1", value="cdefgcdefgcdefgcdefgcdefgcdefgcdefgcdefgcdefgcdefgcdefgcdefgcdefgcdefgcdefgcdefgcdefgcdefgcdefgcdefgcdefgcdefgcdefgcdefg", inline=False)
+    print(after.members)
+    print(len(after.members))
+    embedVar = discord.Embed(title="Title", color=0x2b2b2b)
+    embedVar.add_field(name="f{mention}", value="a", inline=False)
     await client.get_channel(super_id).send(embed=embedVar)
     await client.get_channel(super_id).send(f"{mention} 測試中")
 
