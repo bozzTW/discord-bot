@@ -39,7 +39,7 @@ async def on_voice_state_update(member, before, after):
     #     index = name.rfind("#")
     #     name = name[0:index]
 
-
+    mention = member.mention
     # 找到名字是上面設定的的頻道並指派super_id
     super_id = 0
     for guild in client.guilds:
@@ -48,11 +48,11 @@ async def on_voice_state_update(member, before, after):
                 if channel.name == target_channel:
                     super_id = channel.id
                     break
-    embedVar = discord.Embed(color=0x00ff00)
-    embedVar.add_field(value="123", inline=False)
-    embedVar.add_field(value="456", inline=False)
+    embedVar = discord.Embed(title="Title", description="DescDescDescDescDescDescDescDescDescDescDescDescDescDescDescDescDescDescDescDescDescDescDescDesc", color=0x00ff00)
+    embedVar.add_field(value="abcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcd", inline=true)
+    embedVar.add_field(value="cdefgcdefgcdefgcdefgcdefgcdefgcdefgcdefgcdefgcdefgcdefgcdefgcdefgcdefgcdefgcdefgcdefgcdefgcdefgcdefgcdefgcdefgcdefgcdefg", inline=False)
     await client.get_channel(super_id).send(embed=embedVar)
-    # await client.get_channel(super_id).send("測試中")
+    await client.get_channel(super_id).send(f"{mention} 測試中")
 
     # if before.channel is None:
     #     await client.get_channel(super_id).send(f"{name}跑去{after.channel.name}了")
