@@ -48,11 +48,11 @@ async def on_voice_state_update(member, before, after):
                 if channel.name == target_channel:
                     super_id = channel.id
                     break
-    victim = 0
-    for guild in client.guilds:
-        for channel in guild.voice_channels:
-            print(channel.name)
-            print(channel.id)
+    victim = 846729731634102273
+    # for guild in client.guilds:
+    #     for channel in guild.voice_channels:
+    #         print(channel.name)
+    #         print(type(channel.id))
             # if channel.name == "沒料":
             #     victim = channel.id
     # print(client.get_channel(victim).members)
@@ -60,6 +60,7 @@ async def on_voice_state_update(member, before, after):
     # print(before.channel.members)
     # print(after.channel.members)
     # print(len(after.channel.members))
+    print(client.get_channel(846729731634102273).members)
     await client.get_channel(super_id).send(f"{mention}\n狗幹你一波")
     # await client.get_channel(super_id).send(f"{mention}測試")
     # await client.get_channel(super_id).send("測試")
