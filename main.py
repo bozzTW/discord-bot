@@ -32,26 +32,28 @@ client = discord.Client()
 
 @client.event
 async def on_voice_state_update(member, before, after):
-    name = member.nick
-    if name is None:
-        name = str(member)
-        index = name.rfind("#")
-        name = name[0:index]
+    target_channel = "測試"
+    # name = member.nick
+    # if name is None:
+    #     name = str(member)
+    #     index = name.rfind("#")
+    #     name = name[0:index]
 
+    # 找到名字是上面設定的的頻道並指派super_id
     super_id = 0
     for guild in client.guilds:
         for channel in guild.channels:
             if type(channel) is discord.channel.TextChannel:
-                if channel.name == "機器人通知":
+                if channel.name == target_channel:
                     super_id = channel.id
                     break
-
-    if before.channel is None:
-        await client.get_channel(super_id).send(f"{name}跑去{after.channel.name}了")
-    if before.channel is not None and after.channel is not None:
-        await client.get_channel(super_id).send(f"{name}還跑去{after.channel.name}了")
-    if after.channel is None:
-        await client.get_channel(super_id).send(f"{name}出來了")
+    await client.get_channel(super_id).send("測試中")
+    # if before.channel is None:
+    #     await client.get_channel(super_id).send(f"{name}跑去{after.channel.name}了")
+    # if before.channel is not None and after.channel is not None:
+    #     await client.get_channel(super_id).send(f"{name}還跑去{after.channel.name}了")
+    # if after.channel is None:
+    #     await client.get_channel(super_id).send(f"{name}出來了")
 
 client.run(token)
 
