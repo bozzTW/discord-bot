@@ -39,6 +39,7 @@ async def on_voice_state_update(member, before, after):
     #     index = name.rfind("#")
     #     name = name[0:index]
 
+
     # 找到名字是上面設定的的頻道並指派super_id
     super_id = 0
     for guild in client.guilds:
@@ -47,7 +48,12 @@ async def on_voice_state_update(member, before, after):
                 if channel.name == target_channel:
                     super_id = channel.id
                     break
-    await client.get_channel(super_id).send("測試中")
+    embedVar = discord.Embed(title="Title", description="Desc", color=0x00ff00)
+    embedVar.add_field(name="Field1", value="hi", inline=False)
+    embedVar.add_field(name="Field2", value="hi2", inline=False)
+    await client.get_channel(super_id).send(embed=embedVar)
+    # await client.get_channel(super_id).send("測試中")
+
     # if before.channel is None:
     #     await client.get_channel(super_id).send(f"{name}跑去{after.channel.name}了")
     # if before.channel is not None and after.channel is not None:
