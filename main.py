@@ -84,11 +84,17 @@ async def on_voice_state_update(member, before, after):
     # await client.get_channel(super_id).send(f"{mention} 測試中")
 
     if before.channel is None:
-        await client.get_channel(super_id).send(f"{member.nick} in {after.channel.name}")
+        if member.nick is None:
+            await client.get_channel(super_id).send(f"{member.name} in {after.channel.name}")
+        else:
+            await client.get_channel(super_id).send(f"{member.nick} in {after.channel.name}")
     # if before.channel is not None and after.channel is not None:
     #     await client.get_channel(super_id).send(f"{name}還跑去{after.channel.name}了")
     if after.channel is None:
-        await client.get_channel(super_id).send(f"{member.nick} 出來ㄌ")
+        if member.nick is None:
+            await client.get_channel(super_id).send(f"{member.name} 出來ㄌ")
+        else:
+            await client.get_channel(super_id).send(f"{member.nick} 出來ㄌ")
 
 client.run(token)
 
